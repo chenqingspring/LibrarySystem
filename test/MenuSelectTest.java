@@ -12,7 +12,7 @@ public class MenuSelectTest {
 
     @Test
     public void test_menu_select(){
-        Menu m = new Menu();
+
         Customers customers = new Customers();
         assertEquals(true,customers.select_menu(1));
         assertEquals(true,customers.select_menu(2));

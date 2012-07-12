@@ -10,12 +10,16 @@ public class Main {
     public static ColorOutput cop = new ColorOutput();
     public static Booklist bl = new Booklist();
     public static Menu m = new Menu();
+    public static Customers customers = new Customers();
     
     
       public static void main(String args[]){
         System.out.println("Welcome to the Bangalore Public Library System!" + "\t");
         m.showMenu();
-        System.out.println(Booklist.book1.id + "\t");
-        System.out.println(Booklist.book2.id + "\t");
+        customers.select_menu(customers.readString());
+
+
+        //System.out.println(Booklist.book1.id + "\t");
+        //System.out.println(Booklist.book2.id + "\t");
     }
 }
