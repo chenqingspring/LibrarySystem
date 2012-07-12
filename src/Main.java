@@ -14,7 +14,11 @@ public class Main {
     
     
       public static void main(String args[]){
-        System.out.println("Welcome to the Bangalore Public Library System!" + "\t");
+
+        System.out.println("#####################" + "\t");
+        System.out.println("Welcome to the Bangalore"+"\n"
+                           +" Public Library System!" + "\t");
+        System.out.println("#####################" + "\t");
         m.showMenu();
         customers.select_menu(customers.readString());
 

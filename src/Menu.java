@@ -1,3 +1,5 @@
+import java.awt.*;
+
 /**
  * Created by IntelliJ IDEA.
  * User: spring
@@ -6,6 +8,7 @@
  * To change this template use File | Settings | File Templates.
  */
 public class Menu {
+    public static ColorOutput cop = new ColorOutput();
     public static Booklist bl = new Booklist();
     public static Customers customers = new Customers();
 
@@ -17,30 +20,55 @@ public class Menu {
         Booklist.book4.showBooks();
         System.out.println("0.Back to menu"+ "\t");
         System.out.println("#####################" + "\t");
+        customers.menu_select(customers.readString());
     }
 
     public void show_after_reserved_a_book(){
-        System.out.println("Thank You! Enjoy the book" + "\t");
+        cop.println("Thank You! Enjoy the book!" + "\t", Color.yellow, Color.black);
+        showMenu();
+        customers.select_menu(customers.readString());
     }
     public void show_after_reserved_failed(){
-        System.out.println("Sorry we don't have that book yet" + "\t");
-
+        cop.println("Sorry we don't have that book yet!"+ "\t", Color.red , Color.black);
     }
     public void show_select_valid_option(){
-        System.out.println("Select a valid option!!" + "\t");
-        System .exit(0);
+        cop.println("Select a valid option!" + "\t", Color.red , Color.black);
+        
+        //System .exit(0);
     }
 
     public void show_check_library_number(){
-        System.out.println("Please talk to Librarian. Thank you!"+"\t");
+        cop.println("Please talk to Librarian. Thank you!" + "\t", Color.yellow , Color.black);
+        showMenu();
+        customers.select_menu(customers.readString());
     }
     public void back_to_menu(){
         showMenu();
         customers.select_menu(customers.readString());
+        
+    }
+    public  void input_the_book_number(){
+        cop.println("Please input the number of book:" + "\t", Color.green , Color.black);
+
+         customers.select_book(customers.readString());
     }
     public void showMenu(){
+        System.out.println("#####################" + "\t");
         System.out.println("1.View all the books" + "\t");
         System.out.println("2.Reserve a book" + "\t");
         System.out.println("3.Check Library Number" + "\t");
+        System.out.println("#####################" + "\t");
+        cop.println("please select a menu option£º" + "\t", Color.yellow , Color.black);
+
+    }
+
+    public void only_view_book() {
+        cop.println("sorry,you can only view the books,or go to the menu!", Color.red , Color.black);
+
+    }
+
+    public void please_input_number() {
+        cop.println("sorry,please input a number!", Color.red , Color.black);
+
     }
 }

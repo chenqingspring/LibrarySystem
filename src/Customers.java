@@ -23,7 +23,7 @@ public class Customers {
                       
                         break;
                     case 2:
-
+                        m.input_the_book_number();
                         break;
 
                     case 3:
@@ -33,16 +33,27 @@ public class Customers {
                 return  true;
             } else {
                 m.show_select_valid_option();
-                //this.select_menu(readString());
+                this.select_menu(readString());
                 return false;
             }
           //To change body of created methods use File | Settings | File Templates.
     }
+    public void menu_select(int num) {
+        if (num == 0 ) {
+            m.back_to_menu();
 
+        } else {
+            m.only_view_book();
+            menu_select(readString());
+            //this.select_menu(readString());
+
+        }
+
+    }
 
 
     public  int readString() {
-        System.out.println("please select a menu option£º");
+
         String str = null;
         int num = 0;
         try {
@@ -53,23 +64,23 @@ public class Customers {
             try {
                 int totalMoney = Integer.parseInt(str);
             } catch (NumberFormatException n) {
-                System.out.println("sorry,please input a number!");
+                m.please_input_number();
+
                 num = readString();
             }
         } catch (IOException e) {
-            System.out.println("sorry,please input number!");
+            m.please_input_number();
             num = readString();
         }
         num = Integer.parseInt(str);
         return num;
     }
 
+
     public boolean select_book(int num) {
-        if (num>=0 && num<=4) {
+        if (num>=1 && num<=4) {
             switch (num) {
-                case 0:
-                    m.back_to_menu();
-                    break;
+
                 case 1:
                     m.show_after_reserved_a_book();
                     break;
@@ -86,9 +97,8 @@ public class Customers {
             return  true;
         } else {
             m.show_after_reserved_failed();
-            //this.select_menu(readString());
+            this.select_book(readString());
             return false;
         }
-
     }
 }
