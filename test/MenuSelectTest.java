@@ -14,10 +14,10 @@ public class MenuSelectTest {
     public void test_menu_select(){
 
         Customers customers = new Customers();
-        assertEquals(true,customers.select_menu(1));
-        assertEquals(true,customers.select_menu(2));
-        assertEquals(true,customers.select_menu(3));
-       // assertEquals(false,customers.select_menu(4));
-       // assertEquals(false,customers.select_menu(0));
+        assertEquals(1,customers.select_menu(1));
+        assertEquals(2,customers.select_menu(2));
+        assertEquals(3,customers.select_menu(3));
+        assertEquals(4,customers.select_menu(4));
+        assertEquals(0,customers.select_menu(0));
     }
 }

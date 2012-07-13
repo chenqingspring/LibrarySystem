@@ -14,12 +14,12 @@ public class BookSelectTest {
     public void test_book_select(){
         Menu m = new Menu();
         Customers customers = new Customers();
-        assertEquals(true,customers.select_book(1));
-        assertEquals(true,customers.select_book(2));
-        assertEquals(true,customers.select_book(3));
-        assertEquals(true ,customers.select_book(4));
-        //assertEquals(true,customers.select_book(0));
-       // assertEquals(false,customers.select_book(5));
+        assertEquals(1,customers.select_book(1));
+        assertEquals(2,customers.select_book(2));
+        assertEquals(3,customers.select_book(3));
+        assertEquals(4 ,customers.select_book(4));
+        assertEquals(0,customers.select_book(0));
+        assertEquals(5,customers.select_book(5));
 
     }
 }

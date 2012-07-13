@@ -13,29 +13,28 @@ public class Customers {
 
     public static Menu m = new Menu();
 
-    public boolean select_menu(int num) {
+    public int select_menu(int num) {
 
              if (num>=1 && num<=3) {
                 switch (num) {
 
-                  case 1:
+                    case 1:
                         m.show_all_books();
-                      
                         break;
                     case 2:
                         m.input_the_book_number();
                         break;
-
                     case 3:
                         m.show_check_library_number();
                         break;
                 }
-                return  true;
+                return  num;
             } else {
                 m.show_select_valid_option();
-                this.select_menu(readString());
-                return false;
+                //this.select_menu(readString());
+                return num;
             }
+
           //To change body of created methods use File | Settings | File Templates.
     }
     public void menu_select(int num) {
@@ -46,7 +45,6 @@ public class Customers {
             m.only_view_book();
             menu_select(readString());
             //this.select_menu(readString());
-
         }
 
     }
@@ -77,7 +75,7 @@ public class Customers {
     }
 
 
-    public boolean select_book(int num) {
+    public int select_book(int num) {
         if (num>=1 && num<=4) {
             switch (num) {
 
@@ -94,11 +92,11 @@ public class Customers {
                     m.show_after_reserved_a_book();
                     break;
             }
-            return  true;
+            return  num;
         } else {
             m.show_after_reserved_failed();
-            this.select_book(readString());
-            return false;
+            //this.select_book(readString());
+            return  num;
         }
     }
 }

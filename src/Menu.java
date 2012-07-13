@@ -20,13 +20,12 @@ public class Menu {
         Booklist.book4.showBooks();
         System.out.println("0.Back to menu"+ "\t");
         System.out.println("#####################" + "\t");
-        customers.menu_select(customers.readString());
+        //customers.menu_select(customers.readString());
     }
 
     public void show_after_reserved_a_book(){
         cop.println("Thank You! Enjoy the book!" + "\t", Color.yellow, Color.black);
-        showMenu();
-        customers.select_menu(customers.readString());
+
     }
     public void show_after_reserved_failed(){
         cop.println("Sorry we don't have that book yet!"+ "\t", Color.red , Color.black);
@@ -39,8 +38,8 @@ public class Menu {
 
     public void show_check_library_number(){
         cop.println("Please talk to Librarian. Thank you!" + "\t", Color.yellow , Color.black);
-        showMenu();
-        customers.select_menu(customers.readString());
+        //showMenu();
+        //customers.select_menu(customers.readString());
     }
     public void back_to_menu(){
         showMenu();
@@ -50,7 +49,7 @@ public class Menu {
     public  void input_the_book_number(){
         cop.println("Please input the number of book:" + "\t", Color.green , Color.black);
 
-         customers.select_book(customers.readString());
+         //customers.select_book(customers.readString());
     }
     public void showMenu(){
         System.out.println("#####################" + "\t");

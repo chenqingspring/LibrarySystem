@@ -19,11 +19,48 @@ public class Main {
         System.out.println("Welcome to the Bangalore"+"\n"
                            +" Public Library System!" + "\t");
         System.out.println("#####################" + "\t");
+
         m.showMenu();
-        customers.select_menu(customers.readString());
+        int menuInput = customers.select_menu(customers.readString());
+        switch (menuInput) {
+            case 1:
+                customers.menu_select(customers.readString());
+                break;
+            case 2:
+                after_input_book_number();
+                break;
+            case 3:
+                m.showMenu();
+                customers.select_menu(customers.readString());
+                break;
+            
+        }
 
-
-        //System.out.println(Booklist.book1.id + "\t");
-        //System.out.println(Booklist.book2.id + "\t");
     }
+
+    public static void after_input_book_number(){
+        int bookNumInput = customers.select_book(customers.readString());
+        switch (bookNumInput) {
+            case 1:
+                m.showMenu();
+                customers.select_menu(customers.readString());
+                break;
+            case 2:
+                m.showMenu();
+                customers.select_menu(customers.readString());
+                break;
+            case 3:
+                m.showMenu();
+                customers.select_menu(customers.readString());
+                break;
+            case 4:
+                m.showMenu();
+                customers.select_menu(customers.readString());
+                break;
+            default:
+                customers.select_book(customers.readString());
+
+        }
+    }
+
 }
