@@ -12,7 +12,6 @@ import java.io.InputStreamReader;
 public class Customers {
 
     public static Menu m = new Menu();
-
     public int select_menu(int num) {
 
              if (num>=1 && num<=3) {
@@ -78,7 +77,6 @@ public class Customers {
     public int select_book(int num) {
         if (num>=1 && num<=4) {
             switch (num) {
-
                 case 1:
                     m.show_after_reserved_a_book();
                     break;

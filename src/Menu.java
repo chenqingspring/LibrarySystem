@@ -70,4 +70,47 @@ public class Menu {
         cop.println("sorry,please input a number!", Color.red , Color.black);
 
     }
+
+    public  int after_input_menu_number(int menuInput){
+        switch (menuInput) {
+            case 1:
+                customers.menu_select(customers.readString());
+                break;
+            case 2:
+                after_input_book_number(customers.select_book(customers.readString()));
+                break;
+            case 3:
+                showMenu();
+                customers.select_menu(customers.readString());
+                break;
+            default:
+                showMenu();
+                customers.select_menu(customers.readString());
+                break;
+        }
+        return  menuInput;
+    }
+    public  int after_input_book_number(int bookNumInput){
+        switch (bookNumInput) {
+            case 1:
+                showMenu();
+                customers.select_menu(customers.readString());
+                break;
+            case 2:
+                showMenu();
+                customers.select_menu(customers.readString());
+                break;
+            case 3:
+                showMenu();
+                customers.select_menu(customers.readString());
+                break;
+            case 4:
+                showMenu();
+                customers.select_menu(customers.readString());
+                break;
+            default:
+                customers.select_book(customers.readString());
+        }
+        return bookNumInput;
+    }
 }
