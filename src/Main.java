@@ -9,7 +9,7 @@ public class Main {
     
     public static ColorOutput cop = new ColorOutput();
     public static Booklist bl = new Booklist();
-    public static Menu m = new Menu();
+    public static Menu m = new Menu(0,"a",false);
     public static Customers customers = new Customers();
     
     

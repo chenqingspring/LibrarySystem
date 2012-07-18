@@ -1,3 +1,4 @@
+import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
@@ -10,14 +11,30 @@ import static org.junit.Assert.fail;
  */
 public class MenuSelectTest {
 
+
     @Test
-    public void test_menu_select(){
+    public void if_menu_1_selected(){
 
         Customers customers = new Customers();
-        assertEquals(1,customers.select_menu(1));
-        assertEquals(2,customers.select_menu(2));
-        assertEquals(3,customers.select_menu(3));
-        assertEquals(4,customers.select_menu(4));
-        assertEquals(0,customers.select_menu(0));
+        customers.select_menu(1);
+        assertEquals(true, customers.menulist.menu1.showStatement());
+    }
+    public void if_menu_2_selected(){
+
+        Customers customers = new Customers();
+        customers.select_menu(2);
+        assertEquals(true ,customers.menulist.menu2.showStatement());
+    }
+    public void if_menu_3_selected(){
+
+        Customers customers = new Customers();
+        customers.select_menu(3);
+        assertEquals(true ,customers.menulist.menu3.showStatement());
+
+    }
+    public void if_no_menu_selected(){
+        Customers customers = new Customers();
+        customers.select_menu(0);
+        assertEquals("Select a valid option!!" ,customers.noMenuSelected());
     }
 }

@@ -11,37 +11,45 @@ import java.io.InputStreamReader;
  */
 public class Customers {
 
-    public static Menu m = new Menu();
+    public  MenuList menulist = new MenuList();
+    public  Menu menu = new Menu(0,"a",false);
+    public  Booklist booklist = new Booklist();
     public int select_menu(int num) {
 
              if (num>=1 && num<=3) {
                 switch (num) {
 
                     case 1:
-                        m.show_all_books();
+                        menulist.menu1.show_all_books();
+                        menulist.menu1.setStatement(true);
                         break;
                     case 2:
-                        m.input_the_book_number();
+                        menulist.menu2.input_the_book_number();
+                        menulist.menu2.setStatement(true);
                         break;
                     case 3:
-                        m.show_check_library_number();
+                        menulist.menu3.show_check_library_number();
+                        menulist.menu3.setStatement(true);
                         break;
                 }
                 return  num;
             } else {
-                m.show_select_valid_option();
-                //this.select_menu(readString());
+                 menulist.menu1.show_select_valid_option();
+                 noMenuSelected();//this.select_menu(readString());
                 return num;
             }
 
           //To change body of created methods use File | Settings | File Templates.
     }
+
+
+
     public void menu_select(int num) {
         if (num == 0 ) {
-            m.back_to_menu();
+            menu.back_to_menu();
 
         } else {
-            m.only_view_book();
+            menu.only_view_book();
             menu_select(readString());
             //this.select_menu(readString());
         }
@@ -61,12 +69,12 @@ public class Customers {
             try {
                 int totalMoney = Integer.parseInt(str);
             } catch (NumberFormatException n) {
-                m.please_input_number();
+                menu.please_input_number();
 
                 num = readString();
             }
         } catch (IOException e) {
-            m.please_input_number();
+            menu.please_input_number();
             num = readString();
         }
         num = Integer.parseInt(str);
@@ -78,23 +86,34 @@ public class Customers {
         if (num>=1 && num<=4) {
             switch (num) {
                 case 1:
-                    m.show_after_reserved_a_book();
+                    menu.show_after_reserved_a_book();
+                    booklist.book1.setBookStatement(true);
                     break;
                 case 2:
-                    m.show_after_reserved_a_book();
+                    menu.show_after_reserved_a_book();
+                    booklist.book2.setBookStatement(true);
                     break;
                 case 3:
-                    m.show_after_reserved_a_book();
+                    menu.show_after_reserved_a_book();
+                    booklist.book3.setBookStatement(true);
                     break;
                 case 4:
-                    m.show_after_reserved_a_book();
+                    menu.show_after_reserved_a_book();
+                    booklist.book4.setBookStatement(true);
                     break;
             }
             return  num;
         } else {
-            m.show_after_reserved_failed();
-            //this.select_book(readString());
+            menu.show_after_reserved_failed();
+            noBookSelected();//this.select_book(readString());
             return  num;
         }
+    }
+
+    public String noBookSelected() {
+        return "Sorry we don't have that book yet.";  //To change body of created methods use File | Settings | File Templates.
+    }
+    public String noMenuSelected() {
+        return "Select a valid option!!";  //To change body of created methods use File | Settings | File Templates.
     }
 }

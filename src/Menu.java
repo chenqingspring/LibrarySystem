@@ -8,16 +8,36 @@ import java.awt.*;
  * To change this template use File | Settings | File Templates.
  */
 public class Menu {
+    
+    public String menuName = "";
+    public int menuNum = 0;
+    public boolean isSelected = false ;
+    
+     public Menu(int menuNum, String menuName, boolean isSelected){
+         this.menuNum = menuNum;
+         this.menuName = menuName;
+         this.isSelected  = isSelected;
+     }
+    
+    public void setStatement(boolean isSelected){
+        
+        this.isSelected = isSelected ;
+        
+    }
+    public boolean showStatement(){
+        return isSelected ;
+    }
+    
     public static ColorOutput cop = new ColorOutput();
     public static Booklist bl = new Booklist();
     public static Customers customers = new Customers();
 
         public void show_all_books(){
         System.out.println("#####################" + "\t");
-        Booklist.book1.showBooks();
-        Booklist.book2.showBooks();
-        Booklist.book3.showBooks();
-        Booklist.book4.showBooks();
+        //Booklist.book1.showBooks();
+        //Booklist.book2.showBooks();
+        //Booklist.book3.showBooks();
+        //Booklist.book4.showBooks();
         System.out.println("0.Back to menu"+ "\t");
         System.out.println("#####################" + "\t");
         //customers.menu_select(customers.readString());

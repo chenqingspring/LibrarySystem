@@ -10,13 +10,13 @@ public class Book {
     int  id   = 0;
     String name  = null;
     String author = null;
-    boolean isAvailble = true;
+    boolean isSelected = true;
 
     public Book(int id, String name, String author, boolean isAvailble){
         this.id = id;
         this.name = name;
         this.author = author;
-        this.isAvailble = isAvailble;
+        this.isSelected = isAvailble;
 
     }
 
@@ -25,4 +25,13 @@ public class Book {
          System.out.println(id + ". "+ name +"  "+ author + "\t");
      }
 
+    public void setBookStatement(boolean isSelected){
+
+        this.isSelected = isSelected ;
+
+    }
+
+    public boolean showBookStatememt(){
+        return isSelected ;
+    }
 }
