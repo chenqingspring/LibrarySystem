@@ -37,9 +37,5 @@ public class Customerlist {
         passwords[7] = "118";
         passwords[8] = "119";
         passwords[9] = "110";
-
-
-
-
     }
 }

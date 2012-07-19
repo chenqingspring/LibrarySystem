@@ -56,7 +56,7 @@ public class Customer {
     public  Booklist booklist = new Booklist();
     public int select_menu(int num) {
 
-             if (num>=1 && num<=3) {
+             if (num>=1 && num<=4) {
                 switch (num) {
 
                     case 1:
@@ -98,7 +98,6 @@ public class Customer {
 
 
     public  int readString() {
-
         String str = null;
         int num = 0;
         try {

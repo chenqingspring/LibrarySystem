@@ -19,6 +19,7 @@ public class LoginManager {
             if (customer.getUsername().equals(customerlist.usernames[i])){
                 if (customer.getPassword().equals(customerlist.passwords[i])){
                     customer.setLoggedIn(true);
+                    System.out.println("login succeced!");
                 }
                 else {
                     System.out.println("login failed! wrong password!");

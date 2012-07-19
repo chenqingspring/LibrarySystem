@@ -2,6 +2,7 @@ package menu;
 
 import book.Booklist;
 import customer.Customer;
+import movie.MovieList;
 import output.ColorOutput;
 
 import java.awt.*;
@@ -35,8 +36,8 @@ public class Menu {
     }
     
     public static ColorOutput cop = new ColorOutput();
-    public static Booklist bl = new Booklist();
     public static Customer customer = new Customer("000-0000","111111");
+    public static MovieList movieList = new MovieList();
 
         public void show_all_books(){
         System.out.println("#####################" + "\t");
@@ -63,9 +64,11 @@ public class Menu {
     }
 
     public void show_check_library_number(){
-        cop.println("Please talk to Librarian. Thank you!" + "\t", Color.yellow , Color.black);
-        //showMenu();
-        //customer.select_menu(customer.readString());
+        if(customer.getUsername().equals("1111-111")){
+            cop.println(" you are the librarian!" + "\t", Color.yellow , Color.black);
+        }
+        else
+            cop.println("Please talk to Librarian. Thank you!" + "\t", Color.yellow , Color.black);
     }
     public void back_to_menu(){
         showMenu();
@@ -82,6 +85,7 @@ public class Menu {
         System.out.println("1.View all the books" + "\t");
         System.out.println("2.Reserve a book" + "\t");
         System.out.println("3.Check Library Number" + "\t");
+        System.out.println("4.View all the movies");
         System.out.println("#####################" + "\t");
         cop.println("please select a menu option£º" + "\t", Color.yellow , Color.black);
 
@@ -108,6 +112,9 @@ public class Menu {
             case 3:
                 showMenu();
                 customer.select_menu(customer.readString());
+                break;
+            case 4:
+                movieList.showMovies();
                 break;
             default:
                 showMenu();

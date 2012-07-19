@@ -26,4 +26,22 @@ public class MovieList {
     public Movie movie14 = new Movie(14,"Madagascar 3: Europe's Most Wanted","Eric Darnell","7.2");
     public Movie movie15 = new Movie(15,"The Watch","Akiva Schaffer","N/A");
 
+    public void showMovies() {
+        movie1.show();
+        movie2.show();
+        movie3.show();
+        movie4.show();
+        movie5.show();
+        movie6.show();
+        movie7.show();
+        movie8.show();
+        movie9.show();
+        movie10.show();
+        movie11.show();
+        movie12.show();
+        movie13.show();
+        movie14.show();
+        movie15.show();
+
+    }
 }
