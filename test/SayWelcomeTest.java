@@ -1,4 +1,6 @@
 import org.junit.Test;
+import output.Bibloitica;
+import output.FakePrintStream;
 
 import java.io.FileNotFoundException;
 

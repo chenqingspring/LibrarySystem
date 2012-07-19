@@ -1,3 +1,8 @@
+import book.Booklist;
+import customer.Customer;
+import menu.Menu;
+import output.ColorOutput;
+
 /**
  * Created by IntelliJ IDEA.
  * User: spring
@@ -6,11 +11,9 @@
  * To change this template use File | Settings | File Templates.
  */
 public class Main {
-    
-    public static ColorOutput cop = new ColorOutput();
-    public static Booklist bl = new Booklist();
+
     public static Menu m = new Menu(0,"a",false);
-    public static Customers customers = new Customers();
+    public static Customer customer = new Customer("000-0000","111111");
     
     
       public static void main(String args[]){
@@ -22,8 +25,8 @@ public class Main {
 
         while (true){
           m.showMenu();
-          m.after_input_menu_number(customers.select_menu(customers.readString()));
-          m.after_input_book_number(customers.select_book(customers.readString()));
+          m.after_input_menu_number(customer.select_menu(customer.readString()));
+          m.after_input_book_number(customer.select_book(customer.readString()));
         }
 
     }

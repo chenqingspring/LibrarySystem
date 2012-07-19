@@ -1,3 +1,7 @@
+import book.Booklist;
+import customer.Customer;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -10,42 +14,44 @@ import static org.junit.Assert.assertEquals;
  * To change this template use File | Settings | File Templates.
  */
 public class BookSelectTest {
+    Customer customer = null;
+    @Before
+    public void setUp(){
+        customer = new Customer("000-0000","111111");
+    }
 
     @Test
     public void if_book_1_isSelected() {
-        Customers customers = new Customers();
-        customers.select_book(1);
-        assertEquals(true, customers.booklist.book1.showBookStatememt());
+        customer.select_book(1);
+        assertEquals(true, customer.booklist.book1.showBookStatememt());
     }
 
     @Test
     public void if_book_2_isSelected() {
-        Customers customers = new Customers();
-        customers.select_book(2);
-        assertEquals(true, customers.booklist.book2.showBookStatememt());
+        customer.select_book(2);
+        assertEquals(true, customer.booklist.book2.showBookStatememt());
     }
 
     @Test
     public void if_book_3_isSelected() {
-        Customers customers = new Customers();
-        Booklist booklist = new Booklist();
-        customers.select_book(3);
-        assertEquals(true, customers.booklist.book3.showBookStatememt());
+        customer.select_book(3);
+        assertEquals(true, customer.booklist.book3.showBookStatememt());
     }
 
     @Test
     public void if_book_4_isSelected() {
-        Customers customers = new Customers();
-        Booklist booklist = new Booklist();
-        customers.select_book(4);
-        assertEquals(true,customers.booklist.book4.showBookStatememt());
+        customer.select_book(4);
+        assertEquals(true, customer.booklist.book4.showBookStatememt());
     }
 
     @Test
     public void if_no_book_isSelected() {
-        Customers customers = new Customers();
-        Booklist booklist = new Booklist();
-        customers.select_book(5);
-        assertEquals("Sorry we don't have that book yet.", customers.noBookSelected());
+        customer.select_book(5);
+        assertEquals("Sorry we don't have that book yet.", customer.noBookSelected());
+    }
+
+    @After
+    public void tearDown(){
+        customer = null;
     }
 }
