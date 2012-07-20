@@ -35,19 +35,20 @@ public class Menu {
         return isSelected ;
     }
     
-    public static ColorOutput cop = new ColorOutput();
-    public static Customer customer = new Customer("000-0000","111111");
-    public static MovieList movieList = new MovieList();
+    private  ColorOutput cop = new ColorOutput();
+    private static Customer customer = new Customer("000-0000","111111");
+    private  MovieList movieList = new MovieList();
+    private  Booklist booklist = new Booklist();
 
         public void show_all_books(){
         System.out.println("#####################" + "\t");
-        book.Booklist.book1.showBooks();
-        book.Booklist.book2.showBooks();
-        book.Booklist.book3.showBooks();
-        book.Booklist.book4.showBooks();
+        booklist.book1.showBooks();
+        booklist.book2.showBooks();
+        booklist.book3.showBooks();
+        booklist.book4.showBooks();
         System.out.println("0.Back to menu"+ "\t");
         System.out.println("#####################" + "\t");
-        //customer.menu_select(customer.readString());
+        //customer.if_menu_selected(customer.readString());
     }
 
     public void show_after_reserved_a_book(){
@@ -104,7 +105,7 @@ public class Menu {
     public  int after_input_menu_number(int menuInput){
         switch (menuInput) {
             case 1:
-                customer.menu_select(customer.readString());
+                customer.if_menu_selected(customer.readString());
                 break;
             case 2:
                 after_input_book_number(customer.select_book(customer.readString()));

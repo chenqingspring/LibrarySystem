@@ -1,4 +1,3 @@
-import book.Booklist;
 import customer.Customer;
 import org.junit.After;
 import org.junit.Before;
@@ -23,25 +22,25 @@ public class BookSelectTest {
     @Test
     public void if_book_1_isSelected() {
         customer.select_book(1);
-        assertEquals(true, customer.booklist.book1.showBookStatememt());
+        assertEquals(true, customer.booklist.book1.getBookStatememt());
     }
 
     @Test
     public void if_book_2_isSelected() {
         customer.select_book(2);
-        assertEquals(true, customer.booklist.book2.showBookStatememt());
+        assertEquals(true, customer.booklist.book2.getBookStatememt());
     }
 
     @Test
     public void if_book_3_isSelected() {
         customer.select_book(3);
-        assertEquals(true, customer.booklist.book3.showBookStatememt());
+        assertEquals(true, customer.booklist.book3.getBookStatememt());
     }
 
     @Test
     public void if_book_4_isSelected() {
         customer.select_book(4);
-        assertEquals(true, customer.booklist.book4.showBookStatememt());
+        assertEquals(true, customer.booklist.book4.getBookStatememt());
     }
 
     @Test

@@ -10,10 +10,10 @@ import output.FakePrintStream;
  * To change this template use File | Settings | File Templates.
  */
 public class Movie {
-    int    movieNum = 0;
-    String movieName = "movieName";
-    String movieDirector = "movieDirector";
-    String    rate = "0.0";
+    private int       movieNum = 0;
+    private String    movieName = "movieName";
+    private String    movieDirector = "movieDirector";
+    private String    rate = "0.0";
 
     public Movie(int movieNum, String movieName, String movieDirector, String rate){
         this.movieNum = movieNum;

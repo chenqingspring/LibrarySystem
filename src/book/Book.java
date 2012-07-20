@@ -33,7 +33,7 @@ public class Book {
 
     }
 
-    public boolean showBookStatememt(){
+    public boolean getBookStatememt(){
         return isSelected ;
     }
 }

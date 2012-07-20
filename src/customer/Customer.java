@@ -51,14 +51,11 @@ public class Customer {
         this.isLoggedIn = loggedIn;
     }
 
-    public  MenuList menulist = new MenuList();
-    public  Menu menu = new Menu(0,"a",false);
-    public  Booklist booklist = new Booklist();
+    public   MenuList menulist = new MenuList();
+    private  Menu menu = new Menu(0,"a",false);
+    public   Booklist booklist = new Booklist();
     public int select_menu(int num) {
-
-             if (num>=1 && num<=4) {
                 switch (num) {
-
                     case 1:
                         menulist.menu1.show_all_books();
                         menulist.menu1.setStatement(true);
@@ -71,27 +68,24 @@ public class Customer {
                         menulist.menu3.show_check_library_number();
                         menulist.menu3.setStatement(true);
                         break;
-                }
-                return  num;
-            } else {
-                 menulist.menu1.show_select_valid_option();
-                 noMenuSelected();//this.select_menu(readString());
-                return num;
-            }
-
-          //To change body of created methods use File | Settings | File Templates.
+                    case 4:
+                        menulist.menu4.setStatement(true);
+                        break;
+                    default:
+                        menulist.menu1.show_select_valid_option();
+                        noMenuSelected();//this.select_menu(readString());
     }
+        return num;
+  }
 
 
 
-    public void menu_select(int num) {
+    public void if_menu_selected(int num) {
         if (num == 0 ) {
             menu.back_to_menu();
-
         } else {
             menu.only_view_book();
-            menu_select(readString());
-            //this.select_menu(readString());
+            if_menu_selected(readString());
         }
 
     }
@@ -109,7 +103,6 @@ public class Customer {
                 int totalMoney = Integer.parseInt(str);
             } catch (NumberFormatException n) {
                 menu.please_input_number();
-
                 num = readString();
             }
         } catch (IOException e) {
@@ -122,7 +115,6 @@ public class Customer {
 
 
     public int select_book(int num) {
-        if (num>=1 && num<=4) {
             switch (num) {
                 case 1:
                     menu.show_after_reserved_a_book();
@@ -140,13 +132,12 @@ public class Customer {
                     menu.show_after_reserved_a_book();
                     booklist.book4.setBookStatement(true);
                     break;
-            }
-            return  num;
-        } else {
-            menu.show_after_reserved_failed();
-            noBookSelected();//this.select_book(readString());
-            return  num;
+                default:
+                    menu.show_after_reserved_failed();
+                    noBookSelected();//this.select_book(readString());
+
         }
+        return  num;
     }
 
     public String noBookSelected() {

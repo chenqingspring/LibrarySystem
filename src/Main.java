@@ -21,9 +21,7 @@ public class Main {
     public static Menu m = new Menu(0,"a",false);
     public static Customer customer = new Customer("000-0000","000000");
     public static LoginManager loginManager = new LoginManager();
-    
-    
-      public static void main(String args[]) throws IOException {
+    public static void main(String args[]) throws IOException {
 
         System.out.println("#####################" + "\t");
         System.out.println("Welcome to the Bangalore"+"\n"
@@ -35,7 +33,7 @@ public class Main {
            while (true){
              m.showMenu();
              m.after_input_menu_number(customer.select_menu(customer.readString()));
-             m.after_input_book_number(customer.select_book(customer.readString()));
+             //m.after_input_book_number(customer.select_book(customer.readString()));
            }
          }
         else {
