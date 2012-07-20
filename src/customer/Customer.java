@@ -72,8 +72,8 @@ public class Customer {
                         menulist.menu4.setStatement(true);
                         break;
                     default:
-                        menulist.menu1.show_select_valid_option();
-                        noMenuSelected();//this.select_menu(readString());
+                        menulist.otherMenus.show_select_valid_option();
+                        menulist.otherMenus.setStatement(false);
     }
         return num;
   }
@@ -134,16 +134,9 @@ public class Customer {
                     break;
                 default:
                     menu.show_after_reserved_failed();
-                    noBookSelected();//this.select_book(readString());
+                    booklist.otherBooks.setBookStatement(false);
 
         }
         return  num;
-    }
-
-    public String noBookSelected() {
-        return "Sorry we don't have that book yet.";  //To change body of created methods use File | Settings | File Templates.
-    }
-    public String noMenuSelected() {
-        return "Select a valid option!!";  //To change body of created methods use File | Settings | File Templates.
     }
 }

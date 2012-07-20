@@ -36,8 +36,8 @@ public class MenuSelectTest {
     }
     @Test
     public void if_no_menu_selected(){
-        customer.select_menu(0);
-        assertEquals("Select a valid option!!" , customer.noMenuSelected());
+        customer.select_menu(5);
+        assertEquals(false, customer.menulist.otherMenus.showStatement());
     }
     @After
     public void tearDown(){

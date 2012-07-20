@@ -15,6 +15,7 @@ public class Booklist {
     public  Book book2 = new Book(2,"Refactoring:improving the Design of existing code", "Martin Fowler", false );
     public  Book book3 = new Book(3,"The Art of Agile Development", "Jame Shore", false);
     public  Book book4 = new Book(4,"Extreme Programming Explained", "Kent Beck", false);
+    public  Book otherBooks = new Book(0,"N/A", "N/A", false);
 
 
 

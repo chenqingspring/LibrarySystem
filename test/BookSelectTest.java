@@ -46,7 +46,7 @@ public class BookSelectTest {
     @Test
     public void if_no_book_isSelected() {
         customer.select_book(5);
-        assertEquals("Sorry we don't have that book yet.", customer.noBookSelected());
+        assertEquals(false, customer.booklist.otherBooks.getBookStatememt());
     }
 
     @After
