@@ -14,7 +14,7 @@ public class Customerlist {
 
 
     public Customerlist() {
-         usernames = new String[10];
+        usernames = new String[10];
         passwords = new String[10];
         usernames[0] = "111-1111";
         usernames[1] = "111-1112";

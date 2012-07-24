@@ -52,91 +52,38 @@ public class Customer {
     }
 
     public   MenuList menulist = new MenuList();
-    private  Menu menu = new Menu(0,"a",false);
     public   Booklist booklist = new Booklist();
-    public int select_menu(int num) {
-                switch (num) {
-                    case 1:
-                        menulist.menu1.show_all_books();
-                        menulist.menu1.setStatement(true);
-                        break;
-                    case 2:
-                        menulist.menu2.input_the_book_number();
-                        menulist.menu2.setStatement(true);
-                        break;
-                    case 3:
-                        menulist.menu3.show_check_library_number();
-                        menulist.menu3.setStatement(true);
-                        break;
-                    case 4:
-                        menulist.menu4.setStatement(true);
-                        break;
-                    default:
-                        menulist.otherMenus.show_select_valid_option();
-                        menulist.otherMenus.setStatement(false);
-    }
+
+    public int selectMenu(int num) {
+        int index = num - 1;
+        menulist.init();
+        menulist.list.get(index).show();
         return num;
   }
-
-
-
-    public void if_menu_selected(int num) {
-        if (num == 0 ) {
-            menu.back_to_menu();
-        } else {
-            menu.only_view_book();
-            if_menu_selected(readString());
-        }
-
-    }
-
-
-    public  int readString() {
-        String str = null;
-        int num = 0;
-        try {
-            InputStreamReader isr = new InputStreamReader(System.in);
-            // 声明一个isr的缓冲区
-            BufferedReader br = new BufferedReader(isr);
-            str = br.readLine();
-            try {
-                int totalMoney = Integer.parseInt(str);
-            } catch (NumberFormatException n) {
-                menu.please_input_number();
-                num = readString();
-            }
-        } catch (IOException e) {
-            menu.please_input_number();
-            num = readString();
-        }
-        num = Integer.parseInt(str);
-        return num;
-    }
-
-
-    public int select_book(int num) {
-            switch (num) {
-                case 1:
-                    menu.show_after_reserved_a_book();
-                    booklist.book1.setBookStatement(true);
-                    break;
-                case 2:
-                    menu.show_after_reserved_a_book();
-                    booklist.book2.setBookStatement(true);
-                    break;
-                case 3:
-                    menu.show_after_reserved_a_book();
-                    booklist.book3.setBookStatement(true);
-                    break;
-                case 4:
-                    menu.show_after_reserved_a_book();
-                    booklist.book4.setBookStatement(true);
-                    break;
-                default:
-                    menu.show_after_reserved_failed();
-                    booklist.otherBooks.setBookStatement(false);
-
-        }
+    public int selectBook(int num) {
+        booklist.init();
+        int index = num - 1;
+        int actualBookSize = booklist.list.size() - 1;
+        select(index, actualBookSize);
         return  num;
+    }
+
+    private void select(int index, int actualBookSize) {
+        if(index>=0 && index <actualBookSize )
+            selectBookInList(index);
+        else
+            selectBookOutOfList(actualBookSize);
+    }
+
+    private void selectBookOutOfList(int actualBookSize) {
+        menulist.init();
+        menulist.list.get(1).show_after_reserved_failed();
+        booklist.list.get(actualBookSize).setBookStatement(false);
+    }
+
+    private void selectBookInList(int index) {
+        menulist.init();
+        menulist.list.get(1).show_after_reserved_a_book();
+        booklist.list.get(index).setBookStatement(true);
     }
 }

@@ -1,12 +1,11 @@
-import book.Booklist;
 import customer.Customer;
 import login.LoginManager;
-import menu.Menu;
+import menu.MenuList;
 import output.ColorOutput;
 
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 
 /**
@@ -18,22 +17,25 @@ import java.io.InputStreamReader;
  */
 public class Main {
 
-    public static Menu m = new Menu(0,"a",false);
     public static Customer customer = new Customer("000-0000","000000");
+    public static MenuList  menulist = new MenuList();
     public static LoginManager loginManager = new LoginManager();
+    public static ColorOutput  cop = new ColorOutput();
     public static void main(String args[]) throws IOException {
 
-        System.out.println("#####################" + "\t");
+        cop.println("#####################" + "\t", Color.white,Color.black);
         System.out.println("Welcome to the Bangalore"+"\n"
                            +" Public Library System!" + "\t");
         System.out.println("#####################" + "\t");
+
+        menulist.init();
           userLogin();
           while(true){
            if (customer.isLoggedIn()){
            while (true){
-             m.showMenu();
-             m.after_input_menu_number(customer.select_menu(customer.readString()));
-             //m.after_input_book_number(customer.select_book(customer.readString()));
+           menulist.list.get(1).showMenu();
+           menulist.list.get(1).afterInputMenuNumber(customer.selectMenu(menulist.list.get(1).readString()));
+             //m.afterInputBookNumber(customer.selectBook(customer.readString()));
            }
          }
         else {

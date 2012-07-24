@@ -14,7 +14,7 @@ import static org.junit.Assert.assertEquals;
 public class UserLoginTest {
     @Test
     public void if_common_user_login_succeced(){
-        Customer customer = new Customer("111-1112","112");
+        Customer customer = new Customer("111-1112","112"); //²»ÇåÎú
         LoginManager loginManager = new LoginManager();
         loginManager.userLogin(customer);
         assertEquals(true, customer.isLoggedIn());

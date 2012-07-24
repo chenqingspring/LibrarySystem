@@ -1,5 +1,8 @@
 package book;
 
+import customer.Customer;
+import menu.MenuList;
+
 /**
  * Created by IntelliJ IDEA.
  * User: spring
@@ -35,5 +38,12 @@ public class Book {
 
     public boolean getBookStatememt(){
         return isSelected ;
+    }
+    private MenuList menuList = new MenuList();
+    private Customer customer = new Customer("","");
+    public void toSelect(){
+        menuList.init();
+        menuList.list.get(1).showMenu();
+        customer.selectMenu(menuList.list.get(1).readString());
     }
 }

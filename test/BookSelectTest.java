@@ -21,32 +21,43 @@ public class BookSelectTest {
 
     @Test
     public void if_book_1_isSelected() {
-        customer.select_book(1);
-        assertEquals(true, customer.booklist.book1.getBookStatememt());
+        int inputNum = 1;
+        int index = inputNum - 1;
+        customer.selectBook(inputNum);
+        assertEquals(true, customer.booklist.list.get(index).getBookStatememt());
     }
 
     @Test
     public void if_book_2_isSelected() {
-        customer.select_book(2);
-        assertEquals(true, customer.booklist.book2.getBookStatememt());
+        int inputNum = 2;
+        int index = inputNum - 1;
+        customer.selectBook(inputNum);
+        assertEquals(true, customer.booklist.list.get(index).getBookStatememt());
     }
 
     @Test
     public void if_book_3_isSelected() {
-        customer.select_book(3);
-        assertEquals(true, customer.booklist.book3.getBookStatememt());
+        int inputNum = 3;
+        int index = inputNum - 1;
+        customer.selectBook(inputNum);
+        assertEquals(true, customer.booklist.list.get(index).getBookStatememt());
     }
 
     @Test
     public void if_book_4_isSelected() {
-        customer.select_book(4);
-        assertEquals(true, customer.booklist.book4.getBookStatememt());
+
+        int inputNum = 4;
+        int index = inputNum - 1;
+        customer.selectBook(inputNum);
+        assertEquals(true, customer.booklist.list.get(index).getBookStatememt());
     }
 
     @Test
     public void if_no_book_isSelected() {
-        customer.select_book(5);
-        assertEquals(false, customer.booklist.otherBooks.getBookStatememt());
+        int inputNum = 5;
+        int index = inputNum - 1;
+        customer.selectBook(inputNum);
+        assertEquals(false, customer.booklist.list.get(index).getBookStatememt());
     }
 
     @After

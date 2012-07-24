@@ -20,25 +20,38 @@ public class MenuSelectTest {
 
     @Test
     public void if_menu_1_selected(){
-        customer.select_menu(1);
-        assertEquals(true, customer.menulist.menu1.showStatement());
+        int inputNum = 1;
+        int index = inputNum - 1;
+        customer.selectMenu(inputNum);
+        assertEquals(true, customer.menulist.list.get(index).showStatement());
     }
     @Test
     public void if_menu_2_selected(){
-        customer.select_menu(2);
-        assertEquals(true , customer.menulist.menu2.showStatement());
+        int inputNum = 2;
+        int index = inputNum - 1;
+        customer.selectMenu(inputNum);
+        assertEquals(true, customer.menulist.list.get(index).showStatement());
     }
     @Test
     public void if_menu_3_selected(){
-        customer.select_menu(3);
-        assertEquals(true , customer.menulist.menu3.showStatement());
-
+        int inputNum = 3;
+        int index = inputNum - 1;
+        customer.selectMenu(inputNum);
+        assertEquals(true, customer.menulist.list.get(index).showStatement());
+    }
+    @Test
+    public void if_menu_4_selected(){
+        int inputNum = 4;
+        int index = inputNum - 1;
+        customer.selectMenu(inputNum);
+        assertEquals(true, customer.menulist.list.get(index).showStatement());
     }
     @Test
     public void if_no_menu_selected(){
-        customer.select_menu(5);
-        assertEquals(false, customer.menulist.otherMenus.showStatement());
-    }
+        int inputNum = 5;
+        int index = inputNum - 1;
+        customer.selectMenu(inputNum);
+        assertEquals(false, customer.menulist.list.get(index).showStatement());    }
     @After
     public void tearDown(){
         customer = null;

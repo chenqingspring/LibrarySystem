@@ -2,6 +2,8 @@ package menu;
 
 import menu.Menu;
 
+import java.util.ArrayList;
+
 /**
  * Created by IntelliJ IDEA.
  * User: spring
@@ -10,10 +12,14 @@ import menu.Menu;
  * To change this template use File | Settings | File Templates.
  */
 public class MenuList {
-    public  Menu menu1 = new Menu(1,"View all the books",false );
-    public  Menu menu2 = new Menu(2,"Reserve a book",false );
-    public  Menu menu3 = new Menu(3,"Check Library Number",false );
-    public  Menu menu4 = new Menu(4,"View all movies",false);
-    public  Menu otherMenus = new Menu(0,"N/A",false);
+    public  ArrayList<Menu> list = new ArrayList<Menu>();
+
+    public  void init(){
+        list.add(new ViewBookMenu(1,"View all the books",false));
+        list.add(new InputBookMenu(2,"Reserve a book",false ));
+        list.add(new CheckMenu(3,"Check Library Number",false ));
+        list.add(new ViewMovieMenu(4,"View all movies",false));
+        list.add(new SelectVaild(0,"N/A",false));
+    }
 
 }
