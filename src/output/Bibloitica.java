@@ -8,12 +8,13 @@ package output;
  * To change this template use File | Settings | File Templates.
  */
 public class Bibloitica {
-    private String welcome = "Welcome to the Bangalore Public Library System!"; 
+    private String welcome = "Welcome to the Bangalore"+"\n"
+            +" Public Library System!" + "\t";
     private String menu1 = "1.View all the books";
     private String menu2 = "2.Reserve a book" ;
     private String menu3 = "3.Check Library Number";
 
-    public void welcome() {
+    public void sayWelcome() {
         System.out.println(welcome);
     }
     public void showMenu1() {

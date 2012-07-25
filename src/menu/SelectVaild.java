@@ -1,5 +1,7 @@
 package menu;
 
+import customer.Customer;
+
 import java.awt.*;
 
 /**
@@ -14,7 +16,7 @@ public class SelectVaild extends Menu{
     public SelectVaild(int menuNum, String menuName, boolean isSelected) {
         super(menuNum, menuName, isSelected);
     }
-
+    Customer customer = new Customer();
     @Override
     public void show() {
         cop.println("Select a valid option!" + "\t", Color.red , Color.black);
@@ -24,6 +26,5 @@ public class SelectVaild extends Menu{
     @Override
     public void afterShow(){
         showMenu();
-        customer.selectMenu(readString());
     }
 }

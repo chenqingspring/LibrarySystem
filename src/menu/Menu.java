@@ -2,7 +2,6 @@ package menu;
 
 import book.Booklist;
 import customer.Customer;
-import movie.MovieList;
 import output.ColorOutput;
 
 import java.awt.*;
@@ -17,7 +16,7 @@ import java.io.InputStreamReader;
  * Time: 下午4:32
  * To change this template use File | Settings | File Templates.
  */
-public abstract class Menu {
+public  class Menu {
     
     public String menuName = "";
     public int menuNum = 0;
@@ -28,6 +27,9 @@ public abstract class Menu {
          this.menuName = menuName;
          this.isSelected  = isSelected;
      }
+    public Menu(){
+
+    }
     
     public void setStatement(boolean isSelected){
         
@@ -38,14 +40,15 @@ public abstract class Menu {
         return isSelected ;
     }
     
-    ColorOutput cop = new ColorOutput();
-    Customer customer = new Customer("000-0000","111111");
+    static ColorOutput cop = new ColorOutput();
     Booklist booklist = new Booklist();
 
-    public abstract void show();
-    public abstract void afterShow();
+    public  void show(){
 
+    }
+    public  void afterShow(){
 
+    }
     public void show_after_reserved_a_book(){
         cop.println("Thank You! Enjoy the book!" + "\t", Color.yellow, Color.black);
 
@@ -54,6 +57,7 @@ public abstract class Menu {
         cop.println("Sorry we don't have that book yet!"+ "\t", Color.red , Color.black);
     }
     public  void showMenu(){
+        Customer customer = new Customer("","");
         System.out.println("#####################" + "\t");
         System.out.println("1.View all the books" + "\t");
         System.out.println("2.Reserve a book" + "\t");
@@ -61,26 +65,28 @@ public abstract class Menu {
         System.out.println("4.View all the movies");
         System.out.println("#####################" + "\t");
         cop.println("please select a menu option：" + "\t", Color.yellow , Color.black);
-
+        inputMenuNumber(customer.selectMenu(readString()));
     }
-   public void please_input_number() {
+   public void pleaseInputNumber() {
         cop.println("sorry,please input a number!", Color.red , Color.black);
 
     }
 
-    public  int afterInputMenuNumber(int menuInput){
+   public  int inputMenuNumber(int menuInput){
+        MenuList menulist = new MenuList();
         int index = menuInput - 1;
-        customer.menulist.init();
-        customer.menulist.list.get(index).afterShow();
+        menulist.init();
+        menulist.list.get(index).afterShow();
         return  menuInput;
     }
-    public  int afterInputBookNumber(int bookNumInput){
+    public  int inputBookNumber(int bookNumInput){
         int index = bookNumInput - 1;
         showResult(bookNumInput, index);
         return bookNumInput;
     }
 
     private void showResult(int bookNumInput, int index) {
+        Customer customer = new Customer();
         booklist.init();
         int actualBookNumber = booklist.list.size()-1;
         if(bookNumInput>0&&bookNumInput<actualBookNumber){
@@ -96,21 +102,30 @@ public abstract class Menu {
         String str = null;
         int num = 0;
         try {
-            InputStreamReader isr = new InputStreamReader(System.in);
-            // 声明一个isr的缓冲区
-            BufferedReader br = new BufferedReader(isr);
-            str = br.readLine();
-            try {
-                int totalMoney = Integer.parseInt(str);
-            } catch (NumberFormatException n) {
-                please_input_number();
-                num = readString();
-            }
+            str = readInputStream(str);
         } catch (IOException e) {
-            please_input_number();
-            num = readString();
+
+            num = inputNumberAgain();
         }
         num = Integer.parseInt(str);
         return num;
+    }
+
+    private int inputNumberAgain() {
+        int num;
+        pleaseInputNumber();
+        num = readString();
+        return  num;
+    }
+
+    private String readInputStream(String str) throws IOException {
+        InputStreamReader isr = new InputStreamReader(System.in);
+        BufferedReader br = new BufferedReader(isr);
+        str = br.readLine();
+        try {
+        } catch (NumberFormatException n) {
+            inputNumberAgain();
+        }
+        return str;
     }
 }

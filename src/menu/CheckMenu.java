@@ -1,5 +1,7 @@
 package menu;
 
+import customer.Customer;
+
 import java.awt.*;
 
 /**
@@ -13,19 +15,18 @@ public class CheckMenu extends Menu{
     public CheckMenu(int menuNum, String menuName, boolean isSelected) {
         super(menuNum, menuName, isSelected);
     }
-
+    Customer customer = new Customer();
     @Override
     public void show() {
-        if(customer.getUsername().equals("1111-111")){
+        if(customer.getUsername().equals("111-1111")){
             cop.println(" you are the librarian!" + "\t", Color.yellow , Color.black);
         }
         else{
             cop.println("Please talk to Librarian. Thank you!" + "\t", Color.yellow , Color.black);
         }
-        setStatement(true);//To change body of implemented methods use File | Settings | File Templates.
+        setStatement(true);
     }
     public void afterShow(){
         showMenu();
-        customer.selectMenu(readString());
     }
 }

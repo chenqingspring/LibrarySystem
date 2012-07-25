@@ -20,7 +20,7 @@ public class SayWelcomeTest {
       FakePrintStream printer = new FakePrintStream("a");
       bibloitica.setPrinterForWelcome(printer);
       //bibloitica.welcome(); //如果printer不能拿到系统的输出结果，不用执行此句也可完成测试。
-      assertEquals("Welcome to the Bangalore Public Library System!",printer.getMsg());
+      assertEquals("Welcome to the Bangalore"+"\n"+" Public Library System!" + "\t",printer.getMsg());
       //printer继承了PrintStream，添加具有返回值的getMsg（）方法，目的是用于测试。
     }
 }

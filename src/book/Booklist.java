@@ -13,18 +13,6 @@ import java.util.ArrayList;
 public class Booklist {
 
     public  ArrayList<Book> list = new ArrayList<Book>();
-
-    public void add(Book book){
-        list.add(book);
-    }
-    public void setList(ArrayList<Book> list){
-        this.list = list;
-    }
-
-    public ArrayList<Book> getList(){
-        return list;
-    }
-
     public void init() {
         list.add(new Book(1, "Clean Code", "Robert C.Maitin", false));
         list.add(new Book(2, "Refactoring:improving the Design of existing code", "Martin Fowler", false));

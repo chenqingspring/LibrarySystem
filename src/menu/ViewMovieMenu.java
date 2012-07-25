@@ -18,11 +18,12 @@ public class ViewMovieMenu extends Menu{
 
     @Override
     public void show() {
-
-        setStatement(true);    //To change body of implemented methods use File | Settings | File Templates.
+        setStatement(true);
     }
     public void afterShow(){
         MovieList movieList = new MovieList();
+        movieList.init();
         movieList.showMovies();
+        showMenu();
     }
 }

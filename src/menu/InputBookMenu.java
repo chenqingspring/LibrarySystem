@@ -1,5 +1,7 @@
 package menu;
 
+import customer.Customer;
+
 import java.awt.*;
 
 /**
@@ -22,7 +24,9 @@ public class InputBookMenu extends Menu {
         setStatement(true);
     }
     public void afterShow(){
-        afterInputBookNumber(customer.selectBook(readString()));
+        Customer customer = new Customer();
+        inputBookNumber(customer.selectBook(readString()));
+        showMenu();
     }
 }
                                    

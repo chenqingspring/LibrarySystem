@@ -4,10 +4,6 @@ import book.Booklist;
 import menu.Menu;
 import menu.MenuList;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
 /**
  * Created by IntelliJ IDEA.
  * User: spring
@@ -17,8 +13,8 @@ import java.io.InputStreamReader;
  */
 public class Customer {
 
-    private String username;
-    private String password;
+    private String username = "111-1111";
+    private String password = "111";
     private boolean isLoggedIn = false;
 
     public Customer(String username, String password)
@@ -26,7 +22,9 @@ public class Customer {
         this.username = username;
         this.password = password;
     }
+    public Customer(){
 
+    }
     public String getUsername() {
         return username;
     }
@@ -53,6 +51,8 @@ public class Customer {
 
     public   MenuList menulist = new MenuList();
     public   Booklist booklist = new Booklist();
+    public   Menu     menu = new Menu();
+
 
     public int selectMenu(int num) {
         int index = num - 1;
@@ -76,14 +76,12 @@ public class Customer {
     }
 
     private void selectBookOutOfList(int actualBookSize) {
-        menulist.init();
-        menulist.list.get(1).show_after_reserved_failed();
+        menu.show_after_reserved_failed();
         booklist.list.get(actualBookSize).setBookStatement(false);
     }
 
     private void selectBookInList(int index) {
-        menulist.init();
-        menulist.list.get(1).show_after_reserved_a_book();
+        menu.show_after_reserved_a_book();
         booklist.list.get(index).setBookStatement(true);
     }
 }

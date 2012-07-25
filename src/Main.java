@@ -1,6 +1,7 @@
 import customer.Customer;
 import login.LoginManager;
-import menu.MenuList;
+import menu.Menu;
+import output.Bibloitica;
 import output.ColorOutput;
 
 import java.awt.*;
@@ -17,32 +18,43 @@ import java.io.InputStreamReader;
  */
 public class Main {
 
-    public static Customer customer = new Customer("000-0000","000000");
-    public static MenuList  menulist = new MenuList();
+    public static Customer customer = new Customer();
+    public static Menu menu = new Menu();
+    public static Bibloitica bibloitica = new Bibloitica();
     public static LoginManager loginManager = new LoginManager();
     public static ColorOutput  cop = new ColorOutput();
+
     public static void main(String args[]) throws IOException {
-
-        cop.println("#####################" + "\t", Color.white,Color.black);
-        System.out.println("Welcome to the Bangalore"+"\n"
-                           +" Public Library System!" + "\t");
-        System.out.println("#####################" + "\t");
-
-        menulist.init();
-          userLogin();
-          while(true){
-           if (customer.isLoggedIn()){
-           while (true){
-           menulist.list.get(1).showMenu();
-           menulist.list.get(1).afterInputMenuNumber(customer.selectMenu(menulist.list.get(1).readString()));
-             //m.afterInputBookNumber(customer.selectBook(customer.readString()));
-           }
-         }
-        else {
-               System.out.println("you input a wrong username or password! insert them again!");
+        welcome();
         userLogin();
+        start();
+    }
+
+    private static void start() throws IOException {
+        while(true){
+            if (customer.isLoggedIn())
+                loginSucceced();
+            else
+                loginFailed();
          }
-       }
+    }
+
+    private static void loginFailed() throws IOException {
+        System.out.println("you input a wrong username or password! insert them again!");
+        userLogin();
+    }
+
+    private static void loginSucceced() {
+        menu.showMenu();
+        while (true){
+        menu.inputMenuNumber(customer.selectMenu(menu.readString()));
+        }
+    }
+
+    private static void welcome() {
+        cop.println("#####################" + "\t", Color.white,Color.black);
+        bibloitica.sayWelcome();
+        System.out.println("#####################" + "\t");
     }
 
     private static void userLogin() throws IOException {

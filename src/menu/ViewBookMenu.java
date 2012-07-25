@@ -13,7 +13,6 @@ public class ViewBookMenu extends Menu{
     public ViewBookMenu(int menuNum, String menuName, boolean isSelected) {
         super(menuNum, menuName, isSelected);
     }
-
     public void show(){
         Booklist booklist = new Booklist();
         booklist.init();
@@ -26,6 +25,5 @@ public class ViewBookMenu extends Menu{
     }
     public void afterShow(){
         showMenu();
-        customer.selectMenu(readString());
     }
 }

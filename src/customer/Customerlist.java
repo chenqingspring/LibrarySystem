@@ -12,7 +12,6 @@ public class Customerlist {
     public String[] usernames;
     public String[] passwords;
 
-
     public Customerlist() {
         usernames = new String[10];
         passwords = new String[10];
