@@ -25,17 +25,17 @@ public class ListOfOptionsTest {
     }
      @Test
     public void should_show_a_list_of_options_1_when_start_up() throws FileNotFoundException {
-        bibloitica.setPrinterForMenu1(printer);
+        bibloitica.setPrinterForMenu(printer,0);
         assertEquals("1.View all the books",printer.getMsg());
     }
     @Test
     public void should_show_a_list_of_options_2_when_start_up() throws FileNotFoundException {
-        bibloitica.setPrinterForMenu2(printer);
+        bibloitica.setPrinterForMenu(printer,1);
         assertEquals("2.Reserve a book",printer.getMsg());
     }
     @Test
     public void should_show_a_list_of_options_3_when_start_up() throws FileNotFoundException {
-        bibloitica.setPrinterForMenu3(printer);
+        bibloitica.setPrinterForMenu(printer,2);
         assertEquals("3.Check Library Number",printer.getMsg());
     }
     @After
