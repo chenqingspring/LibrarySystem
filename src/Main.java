@@ -13,7 +13,7 @@ import java.io.InputStreamReader;
  * Created by IntelliJ IDEA.
  * User: spring
  * Date: 12-7-11
- * Time: обнГ4:02
+ * Time: О©╫О©╫О©╫О©╫4:02
  * To change this template use File | Settings | File Templates.
  */
 public class Main {
@@ -38,7 +38,6 @@ public class Main {
                 loginFailed();
          }
     }
-
     private static void loginFailed() throws IOException {
         System.out.println("you input a wrong username or password! insert them again!");
         userLogin();
